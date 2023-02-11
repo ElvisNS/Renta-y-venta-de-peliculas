@@ -8,3 +8,13 @@ C:\Projects\Renta-y-venta-de-peliculas\Renta-y-venta-de-peliculas.BLL\obj\Debug\
 C:\Projects\Renta-y-venta-de-peliculas\Renta-y-venta-de-peliculas.BLL\obj\Debug\netstandard2.1\Renta-y-venta-de-peliculas.BLL.csproj.CoreCompileInputs.cache
 C:\Projects\Renta-y-venta-de-peliculas\Renta-y-venta-de-peliculas.BLL\obj\Debug\netstandard2.1\Renta-y-venta-de-peliculas.BLL.dll
 C:\Projects\Renta-y-venta-de-peliculas\Renta-y-venta-de-peliculas.BLL\obj\Debug\netstandard2.1\Renta-y-venta-de-peliculas.BLL.pdb
+C:\projects\Renta-y-venta-de-peliculas\Renta-y-venta-de-peliculas\Renta-y-venta-de-peliculas.BLL\bin\Debug\netstandard2.1\Renta-y-venta-de-peliculas.BLL.deps.json
+C:\projects\Renta-y-venta-de-peliculas\Renta-y-venta-de-peliculas\Renta-y-venta-de-peliculas.BLL\bin\Debug\netstandard2.1\Renta-y-venta-de-peliculas.BLL.dll
+C:\projects\Renta-y-venta-de-peliculas\Renta-y-venta-de-peliculas\Renta-y-venta-de-peliculas.BLL\bin\Debug\netstandard2.1\Renta-y-venta-de-peliculas.BLL.pdb
+C:\projects\Renta-y-venta-de-peliculas\Renta-y-venta-de-peliculas\Renta-y-venta-de-peliculas.BLL\obj\Debug\netstandard2.1\Renta-y-venta-de-peliculas.BLL.csproj.AssemblyReference.cache
+C:\projects\Renta-y-venta-de-peliculas\Renta-y-venta-de-peliculas\Renta-y-venta-de-peliculas.BLL\obj\Debug\netstandard2.1\Renta-y-venta-de-peliculas.BLL.GeneratedMSBuildEditorConfig.editorconfig
+C:\projects\Renta-y-venta-de-peliculas\Renta-y-venta-de-peliculas\Renta-y-venta-de-peliculas.BLL\obj\Debug\netstandard2.1\Renta-y-venta-de-peliculas.BLL.AssemblyInfoInputs.cache
+C:\projects\Renta-y-venta-de-peliculas\Renta-y-venta-de-peliculas\Renta-y-venta-de-peliculas.BLL\obj\Debug\netstandard2.1\Renta-y-venta-de-peliculas.BLL.AssemblyInfo.cs
+C:\projects\Renta-y-venta-de-peliculas\Renta-y-venta-de-peliculas\Renta-y-venta-de-peliculas.BLL\obj\Debug\netstandard2.1\Renta-y-venta-de-peliculas.BLL.csproj.CoreCompileInputs.cache
+C:\projects\Renta-y-venta-de-peliculas\Renta-y-venta-de-peliculas\Renta-y-venta-de-peliculas.BLL\obj\Debug\netstandard2.1\Renta-y-venta-de-peliculas.BLL.dll
+C:\projects\Renta-y-venta-de-peliculas\Renta-y-venta-de-peliculas\Renta-y-venta-de-peliculas.BLL\obj\Debug\netstandard2.1\Renta-y-venta-de-peliculas.BLL.pdb
