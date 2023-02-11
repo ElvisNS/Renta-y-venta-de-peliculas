@@ -8,3 +8,13 @@ C:\Projects\Renta-y-venta-de-peliculas\Renta-y-venta-de-peliculas.BLL\obj\Debug\
 C:\Projects\Renta-y-venta-de-peliculas\Renta-y-venta-de-peliculas.BLL\obj\Debug\netstandard2.1\Renta-y-venta-de-peliculas.BLL.csproj.CoreCompileInputs.cache
 C:\Projects\Renta-y-venta-de-peliculas\Renta-y-venta-de-peliculas.BLL\obj\Debug\netstandard2.1\Renta-y-venta-de-peliculas.BLL.dll
 C:\Projects\Renta-y-venta-de-peliculas\Renta-y-venta-de-peliculas.BLL\obj\Debug\netstandard2.1\Renta-y-venta-de-peliculas.BLL.pdb
+C:\Progra.II\Renta-y-venta-de-peliculas\Renta-y-venta-de-peliculas.BLL\bin\Debug\netstandard2.1\Renta-y-venta-de-peliculas.BLL.deps.json
+C:\Progra.II\Renta-y-venta-de-peliculas\Renta-y-venta-de-peliculas.BLL\bin\Debug\netstandard2.1\Renta-y-venta-de-peliculas.BLL.dll
+C:\Progra.II\Renta-y-venta-de-peliculas\Renta-y-venta-de-peliculas.BLL\bin\Debug\netstandard2.1\Renta-y-venta-de-peliculas.BLL.pdb
+C:\Progra.II\Renta-y-venta-de-peliculas\Renta-y-venta-de-peliculas.BLL\obj\Debug\netstandard2.1\Renta-y-venta-de-peliculas.BLL.csproj.AssemblyReference.cache
+C:\Progra.II\Renta-y-venta-de-peliculas\Renta-y-venta-de-peliculas.BLL\obj\Debug\netstandard2.1\Renta-y-venta-de-peliculas.BLL.GeneratedMSBuildEditorConfig.editorconfig
+C:\Progra.II\Renta-y-venta-de-peliculas\Renta-y-venta-de-peliculas.BLL\obj\Debug\netstandard2.1\Renta-y-venta-de-peliculas.BLL.AssemblyInfoInputs.cache
+C:\Progra.II\Renta-y-venta-de-peliculas\Renta-y-venta-de-peliculas.BLL\obj\Debug\netstandard2.1\Renta-y-venta-de-peliculas.BLL.AssemblyInfo.cs
+C:\Progra.II\Renta-y-venta-de-peliculas\Renta-y-venta-de-peliculas.BLL\obj\Debug\netstandard2.1\Renta-y-venta-de-peliculas.BLL.csproj.CoreCompileInputs.cache
+C:\Progra.II\Renta-y-venta-de-peliculas\Renta-y-venta-de-peliculas.BLL\obj\Debug\netstandard2.1\Renta-y-venta-de-peliculas.BLL.dll
+C:\Progra.II\Renta-y-venta-de-peliculas\Renta-y-venta-de-peliculas.BLL\obj\Debug\netstandard2.1\Renta-y-venta-de-peliculas.BLL.pdb

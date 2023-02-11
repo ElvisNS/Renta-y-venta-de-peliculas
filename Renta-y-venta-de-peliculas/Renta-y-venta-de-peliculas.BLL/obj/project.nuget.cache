@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "lyH87pWkmhXCM4qNBiEW+NsNEsGKhQMPD1uQ2DCV/EkyvVmoQUns3UMkmldJSnuDtx+Flnkk4TA56ZoVaFdfGQ==",
+  "dgSpecHash": "fts7ikQDxzbXX97Mlckq5vwwAL7+NSRxD19wzNQI6otZk0QRRDYofSxFtIBjyoezG0GKInhk+5+k8XkmwvmGxw==",
   "success": true,
-  "projectFilePath": "C:\\Projects\\Renta-y-venta-de-peliculas\\Renta-y-venta-de-peliculas.BLL\\Renta-y-venta-de-peliculas.BLL.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "C:\\Progra.II\\Renta-y-venta-de-peliculas\\Renta-y-venta-de-peliculas.BLL\\Renta-y-venta-de-peliculas.BLL.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\ameli\\.nuget\\packages\\netstandard.library.ref\\2.1.0\\netstandard.library.ref.2.1.0.nupkg.sha512"
+  ],
   "logs": []
 }
