@@ -28,6 +28,7 @@ namespace Renta_y_venta_de_peliculas.Web.Controllers
                     txt_nombre="Leonys", txt_apellido="Vasquez", txt_user="LeonysVZ", txt_password="Leonys9877", cod_usuario= 04, cod_rol=323, sn_activo=1
 
                 }, 
+               
             };
             return View(Users);
         }

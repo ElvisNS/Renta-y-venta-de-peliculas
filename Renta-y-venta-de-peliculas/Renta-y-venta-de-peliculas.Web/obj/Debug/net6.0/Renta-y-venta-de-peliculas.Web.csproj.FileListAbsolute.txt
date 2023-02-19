@@ -240,3 +240,8 @@ C:\Projects\Renta-y-venta-de-peliculas\Renta-y-venta-de-peliculas.Web\bin\Debug\
 C:\Projects\Renta-y-venta-de-peliculas\Renta-y-venta-de-peliculas.Web\bin\Debug\net6.0\runtimes\win\lib\net6.0\System.Security.Cryptography.ProtectedData.dll
 C:\Projects\Renta-y-venta-de-peliculas\Renta-y-venta-de-peliculas.Web\bin\Debug\net6.0\runtimes\win\lib\net6.0\System.Windows.Extensions.dll
 C:\Projects\Renta-y-venta-de-peliculas\Renta-y-venta-de-peliculas.Web\obj\Debug\net6.0\Renta-y-venta-de-peliculas.Web.csproj.CopyComplete
+C:\Projects\Renta-y-venta-de-peliculas\Renta-y-venta-de-peliculas.Web\obj\Debug\net6.0\staticwebassets\msbuild.Renta-y-venta-de-peliculas.Web.Microsoft.AspNetCore.StaticWebAssets.props
+C:\Projects\Renta-y-venta-de-peliculas\Renta-y-venta-de-peliculas.Web\obj\Debug\net6.0\staticwebassets\msbuild.build.Renta-y-venta-de-peliculas.Web.props
+C:\Projects\Renta-y-venta-de-peliculas\Renta-y-venta-de-peliculas.Web\obj\Debug\net6.0\staticwebassets\msbuild.buildMultiTargeting.Renta-y-venta-de-peliculas.Web.props
+C:\Projects\Renta-y-venta-de-peliculas\Renta-y-venta-de-peliculas.Web\obj\Debug\net6.0\staticwebassets\msbuild.buildTransitive.Renta-y-venta-de-peliculas.Web.props
+C:\Projects\Renta-y-venta-de-peliculas\Renta-y-venta-de-peliculas.Web\obj\Debug\net6.0\staticwebassets.pack.json
