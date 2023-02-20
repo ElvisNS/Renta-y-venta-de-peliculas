@@ -15,8 +15,8 @@ namespace Renta_y_venta_de_peliculas._API.Controllers
     [ApiController]
     public class PeliculaController : ControllerBase
     {
-        private readonly PeliculaRepository peliculaRepository;
-        public PeliculaController(PeliculaRepository peliculaRepository)
+        private readonly IPeliculaRepository peliculaRepository;
+        public PeliculaController(IPeliculaRepository peliculaRepository)
         {
             this.peliculaRepository = peliculaRepository;
         }
@@ -24,11 +24,11 @@ namespace Renta_y_venta_de_peliculas._API.Controllers
         [HttpGet]
         public IActionResult Get()
         {
-            var pelicula = this.peliculaRepository.GetAll();
-            return Ok(pelicula);
+            var peliculas = this.peliculaRepository.GetAll();
+            return Ok(peliculas);
         }
 
-        [HttpGet("id")]
+        [HttpGet("{id}")]
         public IActionResult Get(int id)
         {
             var pelicula = this.peliculaRepository.GetById(id);
@@ -36,17 +36,17 @@ namespace Renta_y_venta_de_peliculas._API.Controllers
         }
 
         [HttpPost("Save")]
-        public IActionResult Post([FromBody] PeliculaAddRequest peliculaAdd )
+        public IActionResult Post([FromBody] PeliculaAddRequest peliculaAdd)
         {
             Pelicula pelicula = new Pelicula()
             {
-                txt_desc = peliculaAdd.txt_desc,
-                cant_disponibles_alquiler = peliculaAdd.cant_disponibles_alquiler,
-                cant_disponibles_venta = peliculaAdd.cant_disponibles_venta,
-                precio_alquiler = peliculaAdd.precio_alquiler,
-                precio_venta = peliculaAdd.precio_venta,
-                CreationDate = DateTime.Now,
-                CreationUser = peliculaAdd.CreationUser
+                Txt_desc = peliculaAdd.Txt_desc,
+                Cant_disponibles_alquiler = peliculaAdd.Cant_disponibles_alquiler,
+                Cant_disponibles_venta = peliculaAdd.Cant_disponibles_venta,
+                Precio_alquiler = peliculaAdd.Precio_alquiler,
+                Precio_venta = peliculaAdd.Precio_venta,
+                Create_date = peliculaAdd.Create_date,
+                Create_user = peliculaAdd.Create_user
             };
             this.peliculaRepository.Save(pelicula);
             return Ok();

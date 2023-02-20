@@ -1,7 +1,5 @@
 ﻿using Renta_y_venta_de_peliculas.DAL.Entities;
-using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace Renta_y_venta_de_peliculas.DAL.Interfaces
 {
@@ -10,7 +8,7 @@ namespace Renta_y_venta_de_peliculas.DAL.Interfaces
         void Save(Pelicula pelicula);
         void Update(Pelicula pelicula);
         void Remove(Pelicula pelicula);
-        Pelicula GetById(int peliculaId);
+        Pelicula GetById(int cod_pelicula);
         List<Pelicula> GetAll();
         bool Exists(string desc);
     }

@@ -2,9 +2,9 @@
 
 namespace Renta_y_venta_de_peliculas._API.Requests
 {
-    public class PeliculaAddRequest: PeliculaRequestbase
+    public class PeliculaAddRequest: PeliculaAddRequestbase
     {
-        public int CreationUser { get; set; }
-        public DateTime CreationDate { get; set; }
+        public int Create_user { get; set; }
+        public DateTime Create_date { get; set; }
     }
 }

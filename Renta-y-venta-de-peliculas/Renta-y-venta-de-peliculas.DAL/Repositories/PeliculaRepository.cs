@@ -5,15 +5,15 @@ using Renta_y_venta_de_peliculas.DAL.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
+
 
 namespace Renta_y_venta_de_peliculas.DAL.Repositories
 {
-    public class PeliculaRepository : IPeliculaRepository
+    public class PeliculaRepository :IPeliculaRepository
     {
         private readonly RYPContext rYPContext;
         private readonly ILogger<PeliculaRepository> ilogger;
-     
+
         public PeliculaRepository(RYPContext rYPContext, ILogger<PeliculaRepository> ilogger)
         {
             this.rYPContext = rYPContext;
@@ -21,29 +21,29 @@ namespace Renta_y_venta_de_peliculas.DAL.Repositories
         }
         public bool Exists(string desc)
         {
-            return this.rYPContext.pelicula.Any(st => st.txt_desc == desc);
+            return this.rYPContext.Peliculas.Any(st => st.Txt_desc == desc);
         }
 
         public List<Pelicula> GetAll()
         {
-            return this.rYPContext.pelicula.Where(pe => !pe.Deleted).ToList();
+            return this.rYPContext.Peliculas.Where(Pelicula=> !Pelicula.Deleted).ToList();
         }
 
-        public Pelicula GetById(int peliculaId)
+        public Pelicula GetById(int cod_pelicula)
         {
-            return this.rYPContext.pelicula.Find(peliculaId);
+            return this.rYPContext.Peliculas.Find(cod_pelicula);
         }
 
         public void Remove(Pelicula pelicula)
         {
             try
             {
-                Pelicula peliculaToRemove = this.GetById(pelicula.cod_pelicula); ;
-                peliculaToRemove.DeletedDate = DateTime.Now;
-                peliculaToRemove.UserDeleted = pelicula.UserDeleted;
-                peliculaToRemove.Deleted = true;
+                Pelicula peliculaToRemove = this.GetById(pelicula.Cod_pelicula); ;
+                peliculaToRemove.Deleted_date = pelicula.Deleted_date;
+                peliculaToRemove.Deleted_user = pelicula.Deleted_user;
+                peliculaToRemove.Deleted= true;
 
-                this.rYPContext.pelicula.Update(peliculaToRemove);
+                this.rYPContext.Peliculas.Update(peliculaToRemove);
                 this.rYPContext.SaveChanges();
 
             }
@@ -59,17 +59,17 @@ namespace Renta_y_venta_de_peliculas.DAL.Repositories
             {
                 Pelicula peliculaToAdd = new Pelicula()
                 {
-                    txt_desc = pelicula.txt_desc,
-                    cant_disponibles_alquiler = pelicula.cant_disponibles_alquiler,
-                    cant_disponibles_venta = pelicula.cant_disponibles_venta,
-                    precio_alquiler = pelicula.precio_alquiler,
-                    precio_venta = pelicula.precio_venta,
-                    CreationDate = DateTime.Now,
-                    CreationUser = pelicula.CreationUser
+                    Txt_desc = pelicula.Txt_desc,
+                    Cant_disponibles_alquiler = pelicula.Cant_disponibles_alquiler,
+                    Cant_disponibles_venta = pelicula.Cant_disponibles_venta,
+                    Precio_alquiler = pelicula.Precio_alquiler,
+                    Precio_venta = pelicula.Precio_venta,
+                    Create_date =pelicula.Create_date,
+                    Create_user= pelicula.Create_user
                 };
 
 
-                this.rYPContext.pelicula.Add(peliculaToAdd);
+                this.rYPContext.Peliculas.Add(peliculaToAdd);
                 this.rYPContext.SaveChanges();
 
             }
@@ -83,18 +83,19 @@ namespace Renta_y_venta_de_peliculas.DAL.Repositories
         {
             try
             {
-                Pelicula peliculaToUpdate = this.GetById(pelicula.cod_pelicula);
+                Pelicula peliculaToUpdate = this.GetById(pelicula.Cod_pelicula);
                
-                peliculaToUpdate.txt_desc = pelicula.txt_desc;
-                peliculaToUpdate.cant_disponibles_alquiler = pelicula.cant_disponibles_alquiler;
-                peliculaToUpdate.cant_disponibles_venta= pelicula.cant_disponibles_venta;
-                peliculaToUpdate.precio_venta= pelicula.precio_venta;
-                peliculaToUpdate.precio_alquiler= pelicula.precio_alquiler;
-                peliculaToUpdate.ModifyDate = DateTime.Now;
-                peliculaToUpdate.UserMod = pelicula.UserMod;
+                
+                peliculaToUpdate.Txt_desc = pelicula.Txt_desc;
+                peliculaToUpdate.Cant_disponibles_alquiler = pelicula.Cant_disponibles_alquiler;
+                peliculaToUpdate.Cant_disponibles_venta= pelicula.Cant_disponibles_venta;
+                peliculaToUpdate.Precio_venta= pelicula.Precio_venta;
+                peliculaToUpdate.Precio_alquiler= pelicula.Precio_alquiler;
+                peliculaToUpdate.Modify_date = pelicula.Modify_date;
+                peliculaToUpdate.Modify_user = pelicula.Modify_user;
 
 
-                this.rYPContext.pelicula.Update(peliculaToUpdate);
+                this.rYPContext.Peliculas.Update(peliculaToUpdate);
                 this.rYPContext.SaveChanges();
             }
             catch (Exception ex)
