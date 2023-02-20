@@ -1,0 +1,56 @@
+C:\Progra.II\Renta-y-venta-de-peliculas\Renta-y-venta-de-peliculas. API\bin\Debug\net5.0\appsettings.Development.json
+C:\Progra.II\Renta-y-venta-de-peliculas\Renta-y-venta-de-peliculas. API\bin\Debug\net5.0\appsettings.json
+C:\Progra.II\Renta-y-venta-de-peliculas\Renta-y-venta-de-peliculas. API\bin\Debug\net5.0\Renta-y-venta-de-peliculas. API.exe
+C:\Progra.II\Renta-y-venta-de-peliculas\Renta-y-venta-de-peliculas. API\bin\Debug\net5.0\Renta-y-venta-de-peliculas. API.deps.json
+C:\Progra.II\Renta-y-venta-de-peliculas\Renta-y-venta-de-peliculas. API\bin\Debug\net5.0\Renta-y-venta-de-peliculas. API.runtimeconfig.json
+C:\Progra.II\Renta-y-venta-de-peliculas\Renta-y-venta-de-peliculas. API\bin\Debug\net5.0\Renta-y-venta-de-peliculas. API.runtimeconfig.dev.json
+C:\Progra.II\Renta-y-venta-de-peliculas\Renta-y-venta-de-peliculas. API\bin\Debug\net5.0\Renta-y-venta-de-peliculas. API.dll
+C:\Progra.II\Renta-y-venta-de-peliculas\Renta-y-venta-de-peliculas. API\bin\Debug\net5.0\Renta-y-venta-de-peliculas. API.pdb
+C:\Progra.II\Renta-y-venta-de-peliculas\Renta-y-venta-de-peliculas. API\bin\Debug\net5.0\Microsoft.Bcl.AsyncInterfaces.dll
+C:\Progra.II\Renta-y-venta-de-peliculas\Renta-y-venta-de-peliculas. API\bin\Debug\net5.0\Microsoft.Bcl.HashCode.dll
+C:\Progra.II\Renta-y-venta-de-peliculas\Renta-y-venta-de-peliculas. API\bin\Debug\net5.0\Microsoft.Data.SqlClient.dll
+C:\Progra.II\Renta-y-venta-de-peliculas\Renta-y-venta-de-peliculas. API\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.dll
+C:\Progra.II\Renta-y-venta-de-peliculas\Renta-y-venta-de-peliculas. API\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Abstractions.dll
+C:\Progra.II\Renta-y-venta-de-peliculas\Renta-y-venta-de-peliculas. API\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.Relational.dll
+C:\Progra.II\Renta-y-venta-de-peliculas\Renta-y-venta-de-peliculas. API\bin\Debug\net5.0\Microsoft.EntityFrameworkCore.SqlServer.dll
+C:\Progra.II\Renta-y-venta-de-peliculas\Renta-y-venta-de-peliculas. API\bin\Debug\net5.0\Microsoft.Identity.Client.dll
+C:\Progra.II\Renta-y-venta-de-peliculas\Renta-y-venta-de-peliculas. API\bin\Debug\net5.0\Microsoft.IdentityModel.JsonWebTokens.dll
+C:\Progra.II\Renta-y-venta-de-peliculas\Renta-y-venta-de-peliculas. API\bin\Debug\net5.0\Microsoft.IdentityModel.Logging.dll
+C:\Progra.II\Renta-y-venta-de-peliculas\Renta-y-venta-de-peliculas. API\bin\Debug\net5.0\Microsoft.IdentityModel.Protocols.dll
+C:\Progra.II\Renta-y-venta-de-peliculas\Renta-y-venta-de-peliculas. API\bin\Debug\net5.0\Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+C:\Progra.II\Renta-y-venta-de-peliculas\Renta-y-venta-de-peliculas. API\bin\Debug\net5.0\Microsoft.IdentityModel.Tokens.dll
+C:\Progra.II\Renta-y-venta-de-peliculas\Renta-y-venta-de-peliculas. API\bin\Debug\net5.0\Microsoft.OpenApi.dll
+C:\Progra.II\Renta-y-venta-de-peliculas\Renta-y-venta-de-peliculas. API\bin\Debug\net5.0\Newtonsoft.Json.dll
+C:\Progra.II\Renta-y-venta-de-peliculas\Renta-y-venta-de-peliculas. API\bin\Debug\net5.0\Swashbuckle.AspNetCore.Swagger.dll
+C:\Progra.II\Renta-y-venta-de-peliculas\Renta-y-venta-de-peliculas. API\bin\Debug\net5.0\Swashbuckle.AspNetCore.SwaggerGen.dll
+C:\Progra.II\Renta-y-venta-de-peliculas\Renta-y-venta-de-peliculas. API\bin\Debug\net5.0\Swashbuckle.AspNetCore.SwaggerUI.dll
+C:\Progra.II\Renta-y-venta-de-peliculas\Renta-y-venta-de-peliculas. API\bin\Debug\net5.0\System.Configuration.ConfigurationManager.dll
+C:\Progra.II\Renta-y-venta-de-peliculas\Renta-y-venta-de-peliculas. API\bin\Debug\net5.0\System.IdentityModel.Tokens.Jwt.dll
+C:\Progra.II\Renta-y-venta-de-peliculas\Renta-y-venta-de-peliculas. API\bin\Debug\net5.0\System.Runtime.Caching.dll
+C:\Progra.II\Renta-y-venta-de-peliculas\Renta-y-venta-de-peliculas. API\bin\Debug\net5.0\System.Security.Cryptography.ProtectedData.dll
+C:\Progra.II\Renta-y-venta-de-peliculas\Renta-y-venta-de-peliculas. API\bin\Debug\net5.0\runtimes\unix\lib\netcoreapp2.1\Microsoft.Data.SqlClient.dll
+C:\Progra.II\Renta-y-venta-de-peliculas\Renta-y-venta-de-peliculas. API\bin\Debug\net5.0\runtimes\win\lib\netcoreapp2.1\Microsoft.Data.SqlClient.dll
+C:\Progra.II\Renta-y-venta-de-peliculas\Renta-y-venta-de-peliculas. API\bin\Debug\net5.0\runtimes\win-arm64\native\sni.dll
+C:\Progra.II\Renta-y-venta-de-peliculas\Renta-y-venta-de-peliculas. API\bin\Debug\net5.0\runtimes\win-x64\native\sni.dll
+C:\Progra.II\Renta-y-venta-de-peliculas\Renta-y-venta-de-peliculas. API\bin\Debug\net5.0\runtimes\win-x86\native\sni.dll
+C:\Progra.II\Renta-y-venta-de-peliculas\Renta-y-venta-de-peliculas. API\bin\Debug\net5.0\runtimes\unix\lib\netcoreapp2.0\System.Runtime.Caching.dll
+C:\Progra.II\Renta-y-venta-de-peliculas\Renta-y-venta-de-peliculas. API\bin\Debug\net5.0\runtimes\win\lib\netcoreapp2.0\System.Runtime.Caching.dll
+C:\Progra.II\Renta-y-venta-de-peliculas\Renta-y-venta-de-peliculas. API\bin\Debug\net5.0\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
+C:\Progra.II\Renta-y-venta-de-peliculas\Renta-y-venta-de-peliculas. API\bin\Debug\net5.0\Renta-y-venta-de-peliculas.DAL.dll
+C:\Progra.II\Renta-y-venta-de-peliculas\Renta-y-venta-de-peliculas. API\bin\Debug\net5.0\Renta-y-venta-de-peliculas.DAL.pdb
+C:\Progra.II\Renta-y-venta-de-peliculas\Renta-y-venta-de-peliculas. API\obj\Debug\net5.0\Renta-y-venta-de-peliculas. API.csproj.AssemblyReference.cache
+C:\Progra.II\Renta-y-venta-de-peliculas\Renta-y-venta-de-peliculas. API\obj\Debug\net5.0\Renta-y-venta-de-peliculas. API.GeneratedMSBuildEditorConfig.editorconfig
+C:\Progra.II\Renta-y-venta-de-peliculas\Renta-y-venta-de-peliculas. API\obj\Debug\net5.0\Renta-y-venta-de-peliculas. API.AssemblyInfoInputs.cache
+C:\Progra.II\Renta-y-venta-de-peliculas\Renta-y-venta-de-peliculas. API\obj\Debug\net5.0\Renta-y-venta-de-peliculas. API.AssemblyInfo.cs
+C:\Progra.II\Renta-y-venta-de-peliculas\Renta-y-venta-de-peliculas. API\obj\Debug\net5.0\Renta-y-venta-de-peliculas. API.csproj.CoreCompileInputs.cache
+C:\Progra.II\Renta-y-venta-de-peliculas\Renta-y-venta-de-peliculas. API\obj\Debug\net5.0\Renta-y-venta-de-peliculas. API.MvcApplicationPartsAssemblyInfo.cs
+C:\Progra.II\Renta-y-venta-de-peliculas\Renta-y-venta-de-peliculas. API\obj\Debug\net5.0\Renta-y-venta-de-peliculas. API.MvcApplicationPartsAssemblyInfo.cache
+C:\Progra.II\Renta-y-venta-de-peliculas\Renta-y-venta-de-peliculas. API\obj\Debug\net5.0\scopedcss\bundle\Renta-y-venta-de-peliculas. API.styles.css
+C:\Progra.II\Renta-y-venta-de-peliculas\Renta-y-venta-de-peliculas. API\obj\Debug\net5.0\staticwebassets\Renta-y-venta-de-peliculas. API.StaticWebAssets.Manifest.cache
+C:\Progra.II\Renta-y-venta-de-peliculas\Renta-y-venta-de-peliculas. API\obj\Debug\net5.0\Renta-y-venta-de-peliculas. API.RazorTargetAssemblyInfo.cache
+C:\Progra.II\Renta-y-venta-de-peliculas\Renta-y-venta-de-peliculas. API\obj\Debug\net5.0\Renta-y-venta-de-peliculas. API.csproj.CopyComplete
+C:\Progra.II\Renta-y-venta-de-peliculas\Renta-y-venta-de-peliculas. API\obj\Debug\net5.0\Renta-y-venta-de-peliculas. API.dll
+C:\Progra.II\Renta-y-venta-de-peliculas\Renta-y-venta-de-peliculas. API\obj\Debug\net5.0\refint\Renta-y-venta-de-peliculas. API.dll
+C:\Progra.II\Renta-y-venta-de-peliculas\Renta-y-venta-de-peliculas. API\obj\Debug\net5.0\Renta-y-venta-de-peliculas. API.pdb
+C:\Progra.II\Renta-y-venta-de-peliculas\Renta-y-venta-de-peliculas. API\obj\Debug\net5.0\Renta-y-venta-de-peliculas. API.genruntimeconfig.cache
+C:\Progra.II\Renta-y-venta-de-peliculas\Renta-y-venta-de-peliculas. API\obj\Debug\net5.0\ref\Renta-y-venta-de-peliculas. API.dll
