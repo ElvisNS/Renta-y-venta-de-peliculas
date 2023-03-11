@@ -7,6 +7,9 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
+using Renta_y_venta_de_pelicula.API.Dependencies;
+using Renta_y_venta_de_peliculas.BLL.Contract;
+using Renta_y_venta_de_peliculas.BLL.Services;
 using Renta_y_venta_de_peliculas.DAL.Context;
 using Renta_y_venta_de_peliculas.DAL.Interfaces;
 using Renta_y_venta_de_peliculas.DAL.Repositories;
@@ -33,7 +36,15 @@ namespace Renta_y_venta_de_pelicula.API
             services.AddDbContext<RYPContext>(options => options.UseSqlServer(this.Configuration.GetConnectionString("RYPContext")));
 
 
-            services.AddTransient<IUserRepository, UserRepository>();
+            //Repository//
+            //services.AddTransient<IUserRepository, UserRepository>();
+
+            //Services//
+            //services.AddTransient<IUserService, UserService>();
+
+
+            //Dependencia
+            services.AddUserDependency();
 
 
             services.AddControllers();

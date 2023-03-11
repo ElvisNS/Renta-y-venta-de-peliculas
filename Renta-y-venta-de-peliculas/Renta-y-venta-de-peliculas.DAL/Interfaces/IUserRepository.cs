@@ -1,16 +1,9 @@
-﻿
-using Renta_y_venta_de_peliculas.DAL.Entities;
-using System.Collections.Generic;
+﻿using Renta_y_venta_de_peliculas.DAL.Entities;
 
 namespace Renta_y_venta_de_peliculas.DAL.Interfaces
 {
-    public interface IUserRepository
+    public interface IUserRepository : Core.IRepositoryBase<User>
     {
-        void Save(User user);
-        void Update(User user);
-        void Remove(User user);
-        User GetById(int userId);
-        List<User> GetAll();
-        bool Exists(string name);
+      
     }
 }

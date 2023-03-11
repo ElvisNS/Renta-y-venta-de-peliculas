@@ -1,9 +1,8 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Renta_y_venta_de_pelicula.API.Requests;
-using Renta_y_venta_de_peliculas.DAL.Entities;
-using Renta_y_venta_de_peliculas.DAL.Interfaces;
+using Renta_y_venta_de_peliculas.BLL.Contract;
+using Renta_y_venta_de_peliculas.BLL.Dtos;
 using System;
-using System.Collections.Generic;
 
 namespace Renta_y_venta_de_pelicula.API.Controllers
 {
@@ -11,32 +10,35 @@ namespace Renta_y_venta_de_pelicula.API.Controllers
     [ApiController]
     public class UserController : ControllerBase
     {
-        private readonly IUserRepository userRepository;
+        private readonly IUserService userService;
 
-        public UserController(IUserRepository userRepository)
+        public UserController(IUserService userService)
         {
-            this.userRepository = userRepository;
+            this.userService = userService;
         }
         
         [HttpGet]
         public IActionResult Get()
         {
-            var user = this.userRepository.GetAll();
-            return Ok(user);
+            var result = this.userService.GetAll();
+            if (!result.Success)
+            {
+                return BadRequest(result);
+            }
+            return Ok(result);
         }
 
-        
         [HttpGet("id")]
         public IActionResult Get(int Id)
         {
-            var user = this.userRepository.GetById(Id);
-            return Ok(user);
+            var result = this.userService.GetById(Id);
+            return Ok(result);
         }
 
         [HttpPost("Save")]
         public IActionResult Post([FromBody] UserAddRequest userAdd)
         {
-            User iuser = new User()
+            UserAddDto UserAddDto = new UserAddDto()
             {
                 CreationUser = userAdd.CreationUser,
                 CreationDate = DateTime.Now,
@@ -48,38 +50,44 @@ namespace Renta_y_venta_de_pelicula.API.Controllers
                 nro_doc = userAdd.nro_doc,
                 sn_activo = userAdd.sn_activo
             };
-            this.userRepository.Save(iuser);
-            return Ok();
+            var result = this.userService.SaveUser(UserAddDto);
+            return Ok(result);
         }
 
         [HttpPut("Update")]
         public IActionResult Put(int Id,[FromBody] UserUpdateRequest userUpdate)
         {
-            User useirUpdate = this.userRepository.GetById(Id);
-            useirUpdate.cod_usuario = userUpdate.cod_usuario;
-            useirUpdate.txt_nombre = userUpdate.txt_nombre;
-            useirUpdate.txt_apellido = userUpdate.txt_apellido;
-            useirUpdate.txt_user = userUpdate.txt_user;
-            useirUpdate.txt_password = userUpdate.txt_password;
-            useirUpdate.cod_rol = userUpdate.cod_rol;
-            useirUpdate.nro_doc = userUpdate.nro_doc;
-            useirUpdate.sn_activo = userUpdate.sn_activo;
-            useirUpdate.ModifyDate = DateTime.Now;
-            useirUpdate.UserMod = userUpdate.UserMod;
+            UserUpdateDto userUpdateDto = new UserUpdateDto()
+            {
+                cod_usuario = userUpdate.cod_usuario,
+                txt_nombre = userUpdate.txt_nombre,
+                txt_apellido = userUpdate.txt_apellido,
+                txt_user = userUpdate.txt_user,
+                txt_password = userUpdate.txt_password,
+                cod_rol = userUpdate.cod_rol,
+                nro_doc = userUpdate.nro_doc,
+                sn_activo = userUpdate.sn_activo,
+                ModifyDate = DateTime.Now,
+                UserMod = userUpdate.UserMod
+            };
+            
+            var result = this.userService.UpdateUser(userUpdateDto);
+            return Ok(result);
 
-            this.userRepository.Update(useirUpdate);
-            return Ok();
         }
 
         [HttpDelete("Remove")]
         public IActionResult Remove(int Id, UserRemoveRequest userRemove)
         {
-            User useirRemove = this.userRepository.GetById(Id);
-            useirRemove.DeletedDate = DateTime.Now;
-            useirRemove.UserDeleted = userRemove.UserDeleted;
-            useirRemove.Deleted = true;
-            this.userRepository.Remove(useirRemove);
-            return Ok();
+            UserRemoveDto userRemoveDto  = new UserRemoveDto()
+            {
+                cod_usuario = userRemove.cod_usuario,
+                DeletedDate = DateTime.Now,
+                UserDeleted = userRemove.UserDeleted,
+                Deleted = true
+            };
+            var result = this.userService.RemoveUser(userRemoveDto);
+            return Ok(result);
         }
     }
 }
