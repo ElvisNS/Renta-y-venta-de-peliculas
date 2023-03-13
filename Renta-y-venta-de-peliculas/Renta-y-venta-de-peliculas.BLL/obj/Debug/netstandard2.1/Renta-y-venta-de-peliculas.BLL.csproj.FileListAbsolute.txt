@@ -8,3 +8,16 @@ C:\Projects\Renta-y-venta-de-peliculas\Renta-y-venta-de-peliculas.BLL\obj\Debug\
 C:\Projects\Renta-y-venta-de-peliculas\Renta-y-venta-de-peliculas.BLL\obj\Debug\netstandard2.1\Renta-y-venta-de-peliculas.BLL.csproj.CoreCompileInputs.cache
 C:\Projects\Renta-y-venta-de-peliculas\Renta-y-venta-de-peliculas.BLL\obj\Debug\netstandard2.1\Renta-y-venta-de-peliculas.BLL.dll
 C:\Projects\Renta-y-venta-de-peliculas\Renta-y-venta-de-peliculas.BLL\obj\Debug\netstandard2.1\Renta-y-venta-de-peliculas.BLL.pdb
+C:\ProyectM\Renta-y-venta-de-peliculas\Renta-y-venta-de-peliculas.BLL\bin\Debug\netstandard2.1\Renta-y-venta-de-peliculas.BLL.deps.json
+C:\ProyectM\Renta-y-venta-de-peliculas\Renta-y-venta-de-peliculas.BLL\bin\Debug\netstandard2.1\Renta-y-venta-de-peliculas.BLL.dll
+C:\ProyectM\Renta-y-venta-de-peliculas\Renta-y-venta-de-peliculas.BLL\bin\Debug\netstandard2.1\Renta-y-venta-de-peliculas.BLL.pdb
+C:\ProyectM\Renta-y-venta-de-peliculas\Renta-y-venta-de-peliculas.BLL\obj\Debug\netstandard2.1\Renta-y-venta-de-peliculas.BLL.csproj.AssemblyReference.cache
+C:\ProyectM\Renta-y-venta-de-peliculas\Renta-y-venta-de-peliculas.BLL\obj\Debug\netstandard2.1\Renta-y-venta-de-peliculas.BLL.GeneratedMSBuildEditorConfig.editorconfig
+C:\ProyectM\Renta-y-venta-de-peliculas\Renta-y-venta-de-peliculas.BLL\obj\Debug\netstandard2.1\Renta-y-venta-de-peliculas.BLL.AssemblyInfoInputs.cache
+C:\ProyectM\Renta-y-venta-de-peliculas\Renta-y-venta-de-peliculas.BLL\obj\Debug\netstandard2.1\Renta-y-venta-de-peliculas.BLL.AssemblyInfo.cs
+C:\ProyectM\Renta-y-venta-de-peliculas\Renta-y-venta-de-peliculas.BLL\obj\Debug\netstandard2.1\Renta-y-venta-de-peliculas.BLL.csproj.CoreCompileInputs.cache
+C:\ProyectM\Renta-y-venta-de-peliculas\Renta-y-venta-de-peliculas.BLL\obj\Debug\netstandard2.1\Renta-y-venta-de-peliculas.BLL.dll
+C:\ProyectM\Renta-y-venta-de-peliculas\Renta-y-venta-de-peliculas.BLL\obj\Debug\netstandard2.1\Renta-y-venta-de-peliculas.BLL.pdb
+C:\ProyectM\Renta-y-venta-de-peliculas\Renta-y-venta-de-peliculas.BLL\bin\Debug\netstandard2.1\Renta-y-venta-de-peliculas.DAL.dll
+C:\ProyectM\Renta-y-venta-de-peliculas\Renta-y-venta-de-peliculas.BLL\bin\Debug\netstandard2.1\Renta-y-venta-de-peliculas.DAL.pdb
+C:\ProyectM\Renta-y-venta-de-peliculas\Renta-y-venta-de-peliculas.BLL\obj\Debug\netstandard2.1\Renta-y-venta-de-peliculas.BLL.csproj.CopyComplete

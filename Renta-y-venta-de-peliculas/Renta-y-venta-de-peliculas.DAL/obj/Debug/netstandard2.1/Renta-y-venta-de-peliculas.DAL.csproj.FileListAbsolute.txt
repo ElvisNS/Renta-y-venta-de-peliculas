@@ -8,3 +8,13 @@ C:\Projects\Renta-y-venta-de-peliculas\Renta-y-venta-de-peliculas.DAL\obj\Debug\
 C:\Projects\Renta-y-venta-de-peliculas\Renta-y-venta-de-peliculas.DAL\obj\Debug\netstandard2.1\Renta-y-venta-de-peliculas.DAL.csproj.CoreCompileInputs.cache
 C:\Projects\Renta-y-venta-de-peliculas\Renta-y-venta-de-peliculas.DAL\obj\Debug\netstandard2.1\Renta-y-venta-de-peliculas.DAL.dll
 C:\Projects\Renta-y-venta-de-peliculas\Renta-y-venta-de-peliculas.DAL\obj\Debug\netstandard2.1\Renta-y-venta-de-peliculas.DAL.pdb
+C:\ProyectM\Renta-y-venta-de-peliculas\Renta-y-venta-de-peliculas.DAL\bin\Debug\netstandard2.1\Renta-y-venta-de-peliculas.DAL.deps.json
+C:\ProyectM\Renta-y-venta-de-peliculas\Renta-y-venta-de-peliculas.DAL\bin\Debug\netstandard2.1\Renta-y-venta-de-peliculas.DAL.dll
+C:\ProyectM\Renta-y-venta-de-peliculas\Renta-y-venta-de-peliculas.DAL\bin\Debug\netstandard2.1\Renta-y-venta-de-peliculas.DAL.pdb
+C:\ProyectM\Renta-y-venta-de-peliculas\Renta-y-venta-de-peliculas.DAL\obj\Debug\netstandard2.1\Renta-y-venta-de-peliculas.DAL.csproj.AssemblyReference.cache
+C:\ProyectM\Renta-y-venta-de-peliculas\Renta-y-venta-de-peliculas.DAL\obj\Debug\netstandard2.1\Renta-y-venta-de-peliculas.DAL.GeneratedMSBuildEditorConfig.editorconfig
+C:\ProyectM\Renta-y-venta-de-peliculas\Renta-y-venta-de-peliculas.DAL\obj\Debug\netstandard2.1\Renta-y-venta-de-peliculas.DAL.AssemblyInfoInputs.cache
+C:\ProyectM\Renta-y-venta-de-peliculas\Renta-y-venta-de-peliculas.DAL\obj\Debug\netstandard2.1\Renta-y-venta-de-peliculas.DAL.AssemblyInfo.cs
+C:\ProyectM\Renta-y-venta-de-peliculas\Renta-y-venta-de-peliculas.DAL\obj\Debug\netstandard2.1\Renta-y-venta-de-peliculas.DAL.csproj.CoreCompileInputs.cache
+C:\ProyectM\Renta-y-venta-de-peliculas\Renta-y-venta-de-peliculas.DAL\obj\Debug\netstandard2.1\Renta-y-venta-de-peliculas.DAL.dll
+C:\ProyectM\Renta-y-venta-de-peliculas\Renta-y-venta-de-peliculas.DAL\obj\Debug\netstandard2.1\Renta-y-venta-de-peliculas.DAL.pdb

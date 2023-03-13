@@ -1,3 +1,5 @@
+using System;
+
 namespace Renta_y_venta_de_peliculas.API
 {
     public class WeatherForecast
@@ -8,6 +10,6 @@ namespace Renta_y_venta_de_peliculas.API
 
         public int TemperatureF => 32 + (int)(TemperatureC / 0.5556);
 
-        public string? Summary { get; set; }
+        public string Summary { get; set; }
     }
 }
