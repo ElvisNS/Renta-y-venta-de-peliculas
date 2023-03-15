@@ -10,6 +10,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Renta-y-venta-de-peliculas.BLL\Renta-y-venta-de-peliculas.BLL.csproj" />
     <ProjectReference Include="..\Renta-y-venta-de-peliculas.DAL\Renta-y-venta-de-peliculas.DAL.csproj" />
   </ItemGroup>
 

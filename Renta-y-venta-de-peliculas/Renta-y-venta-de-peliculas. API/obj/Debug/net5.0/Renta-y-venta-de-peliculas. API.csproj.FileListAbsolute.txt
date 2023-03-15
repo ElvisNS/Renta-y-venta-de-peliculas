@@ -54,3 +54,5 @@ C:\Progra.II\Renta-y-venta-de-peliculas\Renta-y-venta-de-peliculas. API\obj\Debu
 C:\Progra.II\Renta-y-venta-de-peliculas\Renta-y-venta-de-peliculas. API\obj\Debug\net5.0\Renta-y-venta-de-peliculas. API.pdb
 C:\Progra.II\Renta-y-venta-de-peliculas\Renta-y-venta-de-peliculas. API\obj\Debug\net5.0\Renta-y-venta-de-peliculas. API.genruntimeconfig.cache
 C:\Progra.II\Renta-y-venta-de-peliculas\Renta-y-venta-de-peliculas. API\obj\Debug\net5.0\ref\Renta-y-venta-de-peliculas. API.dll
+C:\Progra.II\Renta-y-venta-de-peliculas\Renta-y-venta-de-peliculas. API\bin\Debug\net5.0\Renta-y-venta-de-peliculas.BLL.dll
+C:\Progra.II\Renta-y-venta-de-peliculas\Renta-y-venta-de-peliculas. API\bin\Debug\net5.0\Renta-y-venta-de-peliculas.BLL.pdb

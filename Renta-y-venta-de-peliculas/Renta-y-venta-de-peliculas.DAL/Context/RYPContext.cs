@@ -11,7 +11,7 @@ namespace Renta_y_venta_de_peliculas.DAL.Context
 
         }
         #region "Registros"
-        public DbSet<Pelicula> Peliculas { get; set; }
+        public DbSet<Pelicula> Peliculas { get; set; } = null!;
         #endregion
     }
 }

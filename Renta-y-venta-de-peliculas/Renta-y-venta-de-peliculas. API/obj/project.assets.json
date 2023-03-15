@@ -1542,6 +1542,19 @@
           "lib/netstandard1.3/System.Xml.XmlSerializer.dll": {}
         }
       },
+      "Renta-y-venta-de-peliculas.BLL/1.0.0": {
+        "type": "project",
+        "framework": ".NETStandard,Version=v2.1",
+        "dependencies": {
+          "Renta-y-venta-de-peliculas.DAL": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/Renta-y-venta-de-peliculas.BLL.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/Renta-y-venta-de-peliculas.BLL.dll": {}
+        }
+      },
       "Renta-y-venta-de-peliculas.DAL/1.0.0": {
         "type": "project",
         "framework": ".NETStandard,Version=v2.1",
@@ -5839,6 +5852,11 @@
         "system.xml.xmlserializer.nuspec"
       ]
     },
+    "Renta-y-venta-de-peliculas.BLL/1.0.0": {
+      "type": "project",
+      "path": "../Renta-y-venta-de-peliculas.BLL/Renta-y-venta-de-peliculas.BLL.csproj",
+      "msbuildProject": "../Renta-y-venta-de-peliculas.BLL/Renta-y-venta-de-peliculas.BLL.csproj"
+    },
     "Renta-y-venta-de-peliculas.DAL/1.0.0": {
       "type": "project",
       "path": "../Renta-y-venta-de-peliculas.DAL/Renta-y-venta-de-peliculas.DAL.csproj",
@@ -5847,6 +5865,7 @@
   },
   "projectFileDependencyGroups": {
     "net5.0": [
+      "Renta-y-venta-de-peliculas.BLL >= 1.0.0",
       "Renta-y-venta-de-peliculas.DAL >= 1.0.0",
       "Swashbuckle.AspNetCore >= 5.6.3"
     ]
@@ -5883,6 +5902,9 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
+            "C:\\Progra.II\\Renta-y-venta-de-peliculas\\Renta-y-venta-de-peliculas.BLL\\Renta-y-venta-de-peliculas.BLL.csproj": {
+              "projectPath": "C:\\Progra.II\\Renta-y-venta-de-peliculas\\Renta-y-venta-de-peliculas.BLL\\Renta-y-venta-de-peliculas.BLL.csproj"
+            },
             "C:\\Progra.II\\Renta-y-venta-de-peliculas\\Renta-y-venta-de-peliculas.DAL\\Renta-y-venta-de-peliculas.DAL.csproj": {
               "projectPath": "C:\\Progra.II\\Renta-y-venta-de-peliculas\\Renta-y-venta-de-peliculas.DAL\\Renta-y-venta-de-peliculas.DAL.csproj"
             }

@@ -8,6 +8,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
+using Renta_y_venta_de_peliculas.BLL.Contract;
+using Renta_y_venta_de_peliculas.BLL.Services;
 using Renta_y_venta_de_peliculas.DAL.Context;
 using Renta_y_venta_de_peliculas.DAL.Interfaces;
 using Renta_y_venta_de_peliculas.DAL.Repositories;
@@ -15,6 +17,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using IPeliculaService = Renta_y_venta_de_peliculas.BLL.Contract.IPeliculaService;
 
 namespace Renta_y_venta_de_peliculas._API
 {
@@ -33,8 +36,18 @@ namespace Renta_y_venta_de_peliculas._API
             // Context //
             services.AddDbContext<RYPContext>(options => options.UseSqlServer(this.Configuration.GetConnectionString("RYPContext")));
 
+            // Dependencias //
+            
+            // Repositories //
             services.AddScoped<IPeliculaRepository, PeliculaRepository>();
+            
+
+            // APP Services //
+            services.AddTransient<IPeliculaService, PeliculaService>();
+            
+
             services.AddControllers();
+
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "Renta_y_venta_de_peliculas._API", Version = "v1" });

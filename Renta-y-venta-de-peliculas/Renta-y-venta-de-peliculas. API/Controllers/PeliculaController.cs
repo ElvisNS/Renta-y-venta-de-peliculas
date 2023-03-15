@@ -1,13 +1,7 @@
-﻿using System;
-using Microsoft.AspNetCore.Mvc;
-using System.Collections.Generic;
-using Renta_y_venta_de_peliculas.DAL.Context;
-using Renta_y_venta_de_peliculas.DAL.Entities;
-using Renta_y_venta_de_peliculas.DAL.Interfaces;
-using Renta_y_venta_de_peliculas.DAL.Repositories;
+﻿using Microsoft.AspNetCore.Mvc;
 using Renta_y_venta_de_peliculas._API.Requests;
-
-
+using Renta_y_venta_de_peliculas.BLL.Contract;
+using Renta_y_venta_de_peliculas.BLL.Dtos.Pelicula;
 
 namespace Renta_y_venta_de_peliculas._API.Controllers
 {
@@ -15,55 +9,63 @@ namespace Renta_y_venta_de_peliculas._API.Controllers
     [ApiController]
     public class PeliculaController : ControllerBase
     {
-        private readonly IPeliculaRepository peliculaRepository;
-        public PeliculaController(IPeliculaRepository peliculaRepository)
+        private readonly IPeliculaService peliculaService;
+        public PeliculaController(IPeliculaService peliculaService)
         {
-            this.peliculaRepository = peliculaRepository;
+            this.peliculaService = peliculaService;
         }
 
         [HttpGet]
         public IActionResult Get()
         {
-            var peliculas = this.peliculaRepository.GetAll();
-            return Ok(peliculas);
+            var result = this.peliculaService.GetAll();
+
+            if (!result.Success)
+                return BadRequest(result);
+            
+            return Ok(result);
         }
 
         [HttpGet("{id}")]
         public IActionResult Get(int id)
         {
-            var pelicula = this.peliculaRepository.GetById(id);
-            return Ok(pelicula);
+            var result = this.peliculaService.GetById(id);
+            return Ok(result);
         }
 
         [HttpPost("Save")]
         public IActionResult Post([FromBody] PeliculaAddRequest peliculaAdd)
         {
-            Pelicula pelicula = new Pelicula()
+            PeliculaAddDto pelicula = new PeliculaAddDto()
             {
-                Txt_desc = peliculaAdd.Txt_desc,
-                Cant_disponibles_alquiler = peliculaAdd.Cant_disponibles_alquiler,
-                Cant_disponibles_venta = peliculaAdd.Cant_disponibles_venta,
-                Precio_alquiler = peliculaAdd.Precio_alquiler,
-                Precio_venta = peliculaAdd.Precio_venta,
-                Create_date = peliculaAdd.Create_date,
-                Create_user = peliculaAdd.Create_user
+                TxtDesc = peliculaAdd.Txt_desc,
+                CantDisponiblesAlquiler = peliculaAdd.Cant_disponibles_alquiler,    
+                CantDisponiblesVenta = peliculaAdd.Cant_disponibles_venta,
+                PrecioAlquiler = peliculaAdd.Precio_alquiler,
+                PrecioVenta = peliculaAdd.Precio_venta,
+                CreateDate = peliculaAdd.Create_date,
+                CreateUser = peliculaAdd.Create_user
             };
-            this.peliculaRepository.Save(pelicula);
-            return Ok();
+           
+            var result = this.peliculaService.SavePelicula(pelicula);
+           
+            return Ok(result);
         }
 
         [HttpPost("Update")]
-        public IActionResult Put([FromBody] Pelicula pelicula)
+        public IActionResult Put([FromBody] PeliculaUpdateDto pelicula)
         {
-            this.peliculaRepository.Update(pelicula);
-            return Ok();
+            var result = this.peliculaService.UpdatePelicula(pelicula);
+
+            return Ok(result);
         }
 
-        [HttpPut("Remove")]
-        public IActionResult Remove([FromBody] Pelicula pelicula)
+        [HttpPost("Remove")]
+        public IActionResult Remove([FromBody] PeliculaRemoveDto pelicula)
         {
-            this.peliculaRepository.Save(pelicula);
-            return Ok();
+            var result = this.peliculaService.RemovePelicula(pelicula);
+
+            return Ok(result);
         }
      
     }

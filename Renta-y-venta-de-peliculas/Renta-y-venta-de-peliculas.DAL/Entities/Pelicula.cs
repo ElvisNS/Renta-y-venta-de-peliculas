@@ -6,11 +6,11 @@ namespace Renta_y_venta_de_peliculas.DAL.Entities
 {
     [Table("tPeliculas", Schema = "dbo")]
 
-    public class Pelicula : Core.AuditEntity
+    public class Pelicula : AuditEntity
     {
        [Key]
         public int Cod_pelicula { get; set; }
-        public string? Txt_desc { get; set; }
+        public string Txt_desc { get; set; } = null!;
         public int Cant_disponibles_alquiler { get; set; }
         public int Cant_disponibles_venta { get; set; }
         public decimal Precio_alquiler { get; set; }
