@@ -1,58 +1,116 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Newtonsoft.Json;
+using Renta_y_venta_de_peliculas.Web.Models.Request;
+using Renta_y_venta_de_peliculas.Web.Models.Response;
+using System.Text;
 
 namespace Renta_y_venta_de_peliculas.Web.Controllers
 {
     public class UsersController : Controller
     {
-        // GET: UsersController
-        public ActionResult Index()
+        HttpClientHandler httpClientHandler = new HttpClientHandler();
+
+        private readonly ILogger<UsersController> logger;
+        private readonly IConfiguration configuration;
+
+        public UsersController(ILogger<UsersController> logger,  IConfiguration configuration)
         {
-            List<Models.UsersModel> Users = new List<Models.UsersModel>()
-            {
-                // si el usuario esta activo se representara como 1 y si esta inactivo se representara como 0
-                new Models.UsersModel()
-                {
-                    txt_nombre="Elvis", txt_apellido="Núñez ", txt_user="ElvisNS", txt_password="Elvis9181", cod_usuario= 01, cod_rol=323, sn_activo=1   
-                },
-                  new Models.UsersModel()
-                {
-                    txt_nombre="Martin", txt_apellido="Pimentel", txt_user="MartinPM", txt_password="Martin0132", cod_usuario= 02, cod_rol=544, sn_activo=1
-
-                },  new Models.UsersModel()
-                {
-                    txt_nombre="Jose", txt_apellido="De la Cruz", txt_user="JoseDC", txt_password="Jose123", cod_usuario= 03, cod_rol=123, sn_activo=0
-
-                },  new Models.UsersModel()
-                {
-                    txt_nombre="Leonys", txt_apellido="Vasquez", txt_user="LeonysVZ", txt_password="Leonys9877", cod_usuario= 04, cod_rol=323, sn_activo=1
-
-                }, 
-               
-            };
-            return View(Users);
+            this.logger = logger;
+            this.configuration = configuration;
         }
 
-        // GET: UsersController/Details/5
-        public ActionResult Details(int id)
+        public async Task<ActionResult> Index()
         {
+            UserListResponse userListResponse = new UserListResponse();
+
+            try
+            {
+                using (var httpClient = new HttpClient(this.httpClientHandler))
+                {
+                    var response = await httpClient.GetAsync("http://localhost:61717/api/User");
+
+                    if (response.IsSuccessStatusCode)
+                    {
+                        string apiResponse = await response.Content.ReadAsStringAsync();
+                        userListResponse = JsonConvert.DeserializeObject<UserListResponse>(apiResponse);
+                    }
+                    else
+                    {
+                        // Logica por desarrollar //       
+                    }
+                }
+
+                return View(userListResponse.data);
+            }
+            catch (Exception ex)
+            {
+                this.logger.LogError("Error obteniendo los usuarios", ex.ToString());
+            }
+
             return View();
         }
 
-        // GET: UsersController/Create
+
+        public async Task<ActionResult> Details(int id)
+        {
+            UserResponse userResponse = new UserResponse();
+
+            using (var httpClient = new HttpClient(this.httpClientHandler))
+            {
+                var response = await httpClient.GetAsync($"http://localhost:61717/api/User/id?Id=" + id);
+
+                if (response.IsSuccessStatusCode)
+                {
+                    string apiResponse = await response.Content.ReadAsStringAsync();
+                    userResponse = JsonConvert.DeserializeObject<UserResponse>(apiResponse);
+                }
+                else
+                {
+                    // Logica por desarrollar //       
+                }
+            }
+            return View(userResponse.data);
+        }
+
+
         public ActionResult Create()
         {
             return View();
         }
 
-        // POST: UsersController/Create
+
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(IFormCollection collection)
+        public async Task<ActionResult> Create(UserCreateRequest userCreateRequest)
         {
+            BaseResponse baseResponse = new BaseResponse();
+
             try
             {
-                return RedirectToAction(nameof(Index));
+                userCreateRequest.CreationDate = DateTime.Now;
+                userCreateRequest.CreationUser = 1;
+                using (var httpClient = new HttpClient(this.httpClientHandler))
+                {
+                    StringContent content = new StringContent(JsonConvert.SerializeObject(userCreateRequest), Encoding.UTF8, "application/json");
+
+                    var response = await httpClient.PostAsync("http://localhost:61717/api/User/Save", content);
+
+                    string apiResponse = await response.Content.ReadAsStringAsync();
+
+                    baseResponse = JsonConvert.DeserializeObject<BaseResponse>(apiResponse);
+
+                    if (response.IsSuccessStatusCode)
+                    {
+                        return RedirectToAction(nameof(Index));
+                    }
+                    else
+                    {
+                        ViewBag.Message = baseResponse.Message;
+                        return View();
+                    }
+                }
+
             }
             catch
             {
@@ -60,41 +118,59 @@ namespace Renta_y_venta_de_peliculas.Web.Controllers
             }
         }
 
-        // GET: UsersController/Edit/5
-        public ActionResult Edit(int id)
+        public async Task<ActionResult>  Edit(int id)
         {
-            return View();
+
+            UserResponse userResponse = new UserResponse();
+
+            using (var httpClient = new HttpClient(this.httpClientHandler))
+            {
+                var response = await httpClient.GetAsync($"http://localhost:61717/api/User/id?Id=" + id);
+
+                if (response.IsSuccessStatusCode)
+                {
+                    string apiResponse = await response.Content.ReadAsStringAsync();
+                    userResponse = JsonConvert.DeserializeObject<UserResponse>(apiResponse);
+                }
+                else
+                {
+                    // Logica por desarrollar //       
+                }
+            }
+
+            return View(userResponse.data);
         }
 
-        // POST: UsersController/Edit/5
+
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
+        public async Task<ActionResult> Edit(UserUpdateRequest userUpdateRequest)
         {
+            BaseResponse baseResponse = new BaseResponse();
+
             try
             {
-                return RedirectToAction(nameof(Index));
-            }
-            catch
-            {
-                return View();
-            }
-        }
+                using (var httpClient = new HttpClient(this.httpClientHandler))
+                {
+                    StringContent content = new StringContent(JsonConvert.SerializeObject(userUpdateRequest), Encoding.UTF8, "application/json");
 
-        // GET: UsersController/Delete/5
-        public ActionResult Delete(int id)
-        {
-            return View();
-        }
+                    var response = await httpClient.PutAsync("http://localhost:61717/api/User/Update", content);
 
-        // POST: UsersController/Delete/5
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
-        {
-            try
-            {
-                return RedirectToAction(nameof(Index));
+                    string apiResponse = await response.Content.ReadAsStringAsync();
+
+                    baseResponse = JsonConvert.DeserializeObject<BaseResponse>(apiResponse);
+
+                    if (response.IsSuccessStatusCode) 
+                    {
+                        return RedirectToAction(nameof(Index));
+                    }
+                    else
+                    {
+                        ViewBag.Message = baseResponse.Message;
+                        return View();
+                    }
+                }
+
             }
             catch
             {

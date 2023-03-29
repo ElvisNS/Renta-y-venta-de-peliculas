@@ -61,9 +61,8 @@
                 @Html.DisplayFor(modelItem => item.sn_activo)
             </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+                    @Html.ActionLink("Edit", "Edit", new { id=item.cod_usuario  }) |
+                    @Html.ActionLink("Details", "Details", new {  id=item.cod_usuario  })
             </td>
         </tr>
 }

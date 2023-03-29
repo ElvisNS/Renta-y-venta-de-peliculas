@@ -81,6 +81,7 @@ namespace Renta_y_venta_de_peliculas.BLL.Services
                 result.Data = userModel;
 
                 result.Message = "se consulto el usuario";
+                result.Success = true;
             }
             catch (Exception ex)
             {
