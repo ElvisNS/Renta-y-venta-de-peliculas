@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Newtonsoft.Json;
+using Renta_y_venta_de_peliculas.Web.APIServices.Interfaces;
 using Renta_y_venta_de_peliculas.Web.Models.Request;
 using Renta_y_venta_de_peliculas.Web.Models.Response;
 using System.Text;
@@ -10,12 +11,13 @@ namespace Renta_y_venta_de_peliculas.Web.Controllers
     public class UsersController : Controller
     {
         HttpClientHandler httpClientHandler = new HttpClientHandler();
-
+        private readonly IUserApiService userApiService;
         private readonly ILogger<UsersController> logger;
         private readonly IConfiguration configuration;
 
-        public UsersController(ILogger<UsersController> logger,  IConfiguration configuration)
+        public UsersController(IUserApiService userApiService, ILogger<UsersController> logger,  IConfiguration configuration)
         {
+            this.userApiService = userApiService;
             this.logger = logger;
             this.configuration = configuration;
         }
@@ -24,31 +26,9 @@ namespace Renta_y_venta_de_peliculas.Web.Controllers
         {
             UserListResponse userListResponse = new UserListResponse();
 
-            try
-            {
-                using (var httpClient = new HttpClient(this.httpClientHandler))
-                {
-                    var response = await httpClient.GetAsync("http://localhost:61717/api/User");
+            userListResponse = await this.userApiService.GetUsers();
 
-                    if (response.IsSuccessStatusCode)
-                    {
-                        string apiResponse = await response.Content.ReadAsStringAsync();
-                        userListResponse = JsonConvert.DeserializeObject<UserListResponse>(apiResponse);
-                    }
-                    else
-                    {
-                        // Logica por desarrollar //       
-                    }
-                }
-
-                return View(userListResponse.data);
-            }
-            catch (Exception ex)
-            {
-                this.logger.LogError("Error obteniendo los usuarios", ex.ToString());
-            }
-
-            return View();
+            return View(userListResponse.data);
         }
 
 
@@ -56,20 +36,8 @@ namespace Renta_y_venta_de_peliculas.Web.Controllers
         {
             UserResponse userResponse = new UserResponse();
 
-            using (var httpClient = new HttpClient(this.httpClientHandler))
-            {
-                var response = await httpClient.GetAsync($"http://localhost:61717/api/User/id?Id=" + id);
+            userResponse = await this.userApiService.GetUser(id);
 
-                if (response.IsSuccessStatusCode)
-                {
-                    string apiResponse = await response.Content.ReadAsStringAsync();
-                    userResponse = JsonConvert.DeserializeObject<UserResponse>(apiResponse);
-                }
-                else
-                {
-                    // Logica por desarrollar //       
-                }
-            }
             return View(userResponse.data);
         }
 
@@ -86,36 +54,14 @@ namespace Renta_y_venta_de_peliculas.Web.Controllers
         {
             BaseResponse baseResponse = new BaseResponse();
 
-            try
+            baseResponse = await this.userApiService.Save(userCreateRequest);
+
+            if (!baseResponse.Success)
             {
-                userCreateRequest.CreationDate = DateTime.Now;
-                userCreateRequest.CreationUser = 1;
-                using (var httpClient = new HttpClient(this.httpClientHandler))
-                {
-                    StringContent content = new StringContent(JsonConvert.SerializeObject(userCreateRequest), Encoding.UTF8, "application/json");
-
-                    var response = await httpClient.PostAsync("http://localhost:61717/api/User/Save", content);
-
-                    string apiResponse = await response.Content.ReadAsStringAsync();
-
-                    baseResponse = JsonConvert.DeserializeObject<BaseResponse>(apiResponse);
-
-                    if (response.IsSuccessStatusCode)
-                    {
-                        return RedirectToAction(nameof(Index));
-                    }
-                    else
-                    {
-                        ViewBag.Message = baseResponse.Message;
-                        return View();
-                    }
-                }
-
-            }
-            catch
-            {
+                ViewBag.Message = baseResponse.Message;
                 return View();
             }
+            return RedirectToAction(nameof(Index));
         }
 
         public async Task<ActionResult>  Edit(int id)
@@ -123,20 +69,7 @@ namespace Renta_y_venta_de_peliculas.Web.Controllers
 
             UserResponse userResponse = new UserResponse();
 
-            using (var httpClient = new HttpClient(this.httpClientHandler))
-            {
-                var response = await httpClient.GetAsync($"http://localhost:61717/api/User/id?Id=" + id);
-
-                if (response.IsSuccessStatusCode)
-                {
-                    string apiResponse = await response.Content.ReadAsStringAsync();
-                    userResponse = JsonConvert.DeserializeObject<UserResponse>(apiResponse);
-                }
-                else
-                {
-                    // Logica por desarrollar //       
-                }
-            }
+            userResponse = await this.userApiService.GetUser(id);
 
             return View(userResponse.data);
         }
@@ -148,34 +81,15 @@ namespace Renta_y_venta_de_peliculas.Web.Controllers
         {
             BaseResponse baseResponse = new BaseResponse();
 
-            try
+            baseResponse = await this.userApiService.Update(userUpdateRequest);
+
+            if (!baseResponse.Success)
             {
-                using (var httpClient = new HttpClient(this.httpClientHandler))
-                {
-                    StringContent content = new StringContent(JsonConvert.SerializeObject(userUpdateRequest), Encoding.UTF8, "application/json");
-
-                    var response = await httpClient.PutAsync("http://localhost:61717/api/User/Update", content);
-
-                    string apiResponse = await response.Content.ReadAsStringAsync();
-
-                    baseResponse = JsonConvert.DeserializeObject<BaseResponse>(apiResponse);
-
-                    if (response.IsSuccessStatusCode) 
-                    {
-                        return RedirectToAction(nameof(Index));
-                    }
-                    else
-                    {
-                        ViewBag.Message = baseResponse.Message;
-                        return View();
-                    }
-                }
-
-            }
-            catch
-            {
+                ViewBag.Message = baseResponse.Message;
                 return View();
             }
+            return RedirectToAction(nameof(Index));
+
         }
     }
 }

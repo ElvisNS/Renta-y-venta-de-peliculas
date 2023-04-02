@@ -1,6 +1,12 @@
+using Microsoft.Build.Framework;
+using Renta_y_venta_de_peliculas.Web.APIServices.Interfaces;
+using Renta_y_venta_de_peliculas.Web.APIServices.Services;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+builder.Services.AddHttpClient();
+builder.Services.AddTransient<IUserApiService, UserApiService>();
 builder.Services.AddControllersWithViews();
 
 var app = builder.Build();
