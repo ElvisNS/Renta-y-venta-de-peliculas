@@ -1,23 +1,16 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
 using Renta_y_venta_de_peliculas.BLL.Contract;
 using Renta_y_venta_de_peliculas.BLL.Services;
 using Renta_y_venta_de_peliculas.DAL.Context;
 using Renta_y_venta_de_peliculas.DAL.Interfaces;
 using Renta_y_venta_de_peliculas.DAL.Repositories;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using IPeliculaService = Renta_y_venta_de_peliculas.BLL.Contract.IPeliculaService;
+
 
 namespace Renta_y_venta_de_peliculas._API
 {
@@ -33,6 +26,8 @@ namespace Renta_y_venta_de_peliculas._API
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddHttpClient();
+            services.AddControllersWithViews();
             // Context //
             services.AddDbContext<RYPContext>(options => options.UseSqlServer(this.Configuration.GetConnectionString("RYPContext")));
 
@@ -73,6 +68,7 @@ namespace Renta_y_venta_de_peliculas._API
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllers();
+               
             });
         }
     }

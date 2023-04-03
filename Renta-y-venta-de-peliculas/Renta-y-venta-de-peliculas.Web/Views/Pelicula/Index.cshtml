@@ -1,0 +1,77 @@
+﻿@model IEnumerable<Renta_y_venta_de_peliculas.Web.Models.PeliculaModel>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Lista de Peliculas</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.codPelicula)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.txtDesc)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.cant_Disponibles_Alquiler)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.cant_Disponibles_Venta)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.precioVenta)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.precioAlquiler)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.createDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.createDateDisplay)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.codPelicula)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.txtDesc)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.cant_Disponibles_Alquiler)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.cant_Disponibles_Venta)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.precioVenta)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.precioAlquiler)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.createDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.createDateDisplay)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.codPelicula} ) |
+                @Html.ActionLink("Details", "Details", new { id=item.codPelicula }) |
+               
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

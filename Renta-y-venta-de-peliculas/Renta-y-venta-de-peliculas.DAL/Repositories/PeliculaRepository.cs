@@ -2,8 +2,6 @@
 using Renta_y_venta_de_peliculas.DAL.Context;
 using Renta_y_venta_de_peliculas.DAL.Entities;
 using Renta_y_venta_de_peliculas.DAL.Interfaces;
-using System.Collections.Generic;
-using System.Linq;
 using System;
 
 

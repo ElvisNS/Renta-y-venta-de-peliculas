@@ -5,12 +5,15 @@ using Renta_y_venta_de_peliculas.BLL.Core;
 using Renta_y_venta_de_peliculas.BLL.Dtos.Pelicula;
 using Renta_y_venta_de_peliculas.BLL.Models;
 using Renta_y_venta_de_peliculas.DAL.Entities;
+using Renta_y_venta_de_peliculas.BLL.Contract;
 using Renta_y_venta_de_peliculas.DAL.Interfaces;
+using Renta_y_venta_de_peliculas.BLL.Extensions;
+using Renta_y_venta_de_peliculas.BLL.Exceptions;
 
 
 namespace Renta_y_venta_de_peliculas.BLL.Services
 {
-    public class PeliculaService : Contract.IPeliculaService
+    public class PeliculaService : IPeliculaService
     {
         private readonly IPeliculaRepository peliculaRepository;
         private readonly ILogger<PeliculaService> logger;
@@ -25,31 +28,30 @@ namespace Renta_y_venta_de_peliculas.BLL.Services
         public ServiceResult GetAll()
         {
             ServiceResult result = new ServiceResult();
+
             try
             {
-                this.logger.LogInformation("Consultando las peliculas");
+                var peliculas = this.peliculaRepository.GetEntities().Select(cd => new PeliculaResultModel()
 
-                var peliculas = this.peliculaRepository
-                                    .GetEntities()
-                                    .Select(pe => new PeliculaModel()
-                                    {
-                                        CodPelicula = pe.Cod_pelicula,
-                                        Cant_Disponibles_Alquiler = pe.Cant_disponibles_alquiler,
-                                        Cant_Disponibles_Venta = pe.Cant_disponibles_venta,
-                                        TxtDesc = pe.Txt_desc,
-                                        PrecioAlquiler = pe.Precio_alquiler,
-                                        PrecioVenta = pe.Precio_venta,
-                                        CreateDate = pe.Create_date
-                                    }).ToList();
+                {
+                    codPelicula = cd.Cod_pelicula,
+                    cant_Disponibles_Alquiler = cd.Cant_disponibles_alquiler,
+                    cant_Disponibles_Venta = cd.Cant_disponibles_venta,
+                    txtDesc = cd.Txt_desc,
+                    precioAlquiler = cd.Precio_alquiler,
+                    precioVenta = cd.Precio_venta,
+                    createDate = cd.Create_date
+
+                }).ToList();
 
                 result.Data = peliculas;
-
-                this.logger.LogInformation("Se consultaron las peliculas")
-            ; }
+                result.Success = true;
+               
+            }
             catch (Exception ex)
             {
                 result.Success = false;
-                result.Message = "Error obteniendo las peliculas";
+                result.Message = "Ocurrió un error obteniendo las peliculas";
                 this.logger.LogError($"{result.Message}", ex.ToString());
             }
             return result;
@@ -57,117 +59,155 @@ namespace Renta_y_venta_de_peliculas.BLL.Services
         public ServiceResult GetById(int Id)
         {
             ServiceResult result = new ServiceResult();
+           
             try
             {
-                this.logger.LogInformation("consultando la pelicula");
-
                 var pelicula = this.peliculaRepository.GetEntity(Id);
 
-                PeliculaModel peliculaModel = new PeliculaModel()
+                PeliculaResultModel peliculaResultModel = new PeliculaResultModel()
                 {
-                    CodPelicula = pelicula.Cod_pelicula,
-                    Cant_Disponibles_Alquiler   = pelicula.Cant_disponibles_alquiler,
-                    Cant_Disponibles_Venta= pelicula.Cant_disponibles_venta,
-                    TxtDesc = pelicula.Txt_desc,
-                    PrecioAlquiler = pelicula.Precio_alquiler,
-                    PrecioVenta = pelicula.Precio_venta,
-                    CreateDate= pelicula.Create_date
-                };
+                 codPelicula = pelicula.Cod_pelicula,
+                 cant_Disponibles_Alquiler = pelicula.Cant_disponibles_alquiler,
+                 cant_Disponibles_Venta = pelicula.Cant_disponibles_venta,
+                 txtDesc = pelicula.Txt_desc,
+                 PrecioAlquiler = pelicula.Precio_alquiler,
+                 precioVenta = pelicula.Precio_venta,
+                 createDate = pelicula.Create_date
 
-                result.Data = peliculaModel;
-
-                this.logger.LogInformation("Se consulto la pelicula");
+            };
+                
+                result.Data = peliculaResultModel;
+                result.Success = true;
+                               
             }
             catch (Exception ex)
             {
                 result.Success = false;
-                result.Message = "Error obteniendo las peliculas";
+                result.Message = "Ocurrió un error obteniendo las peliculas";
                 this.logger.LogError($"{result.Message}", ex.ToString());
             }
             return result;
         }
-        public ServiceResult RemovePelicula(PeliculaRemoveDto peliculaRemove)
+        public ServiceResult RemovePelicula(PeliculaRemoveDto removeDto)
         {
+            
             ServiceResult result = new ServiceResult();
             try
             {
-                DAL.Entities.Pelicula pelicula = this.peliculaRepository.GetEntity(peliculaRemove.CodPelicula);
+                Pelicula peliculaToRemove = this.peliculaRepository.GetEntity(removeDto.codPelicula);
+              
+                peliculaToRemove.Deleted = removeDto.removed;
+                peliculaToRemove.Deleted_date  = removeDto.remove_date;
+                peliculaToRemove.Deleted_user = removeDto.remove_user;
 
-                pelicula.Cod_pelicula = peliculaRemove.CodPelicula;
-                pelicula.Deleted_date = peliculaRemove.Remove_date;
-                pelicula.Deleted = true;
-                pelicula.Deleted_user = peliculaRemove.Remove_user;
+                this.peliculaRepository.Update(peliculaToRemove);
 
-                this.peliculaRepository.Update(pelicula);
-                this.peliculaRepository.SaveChanges();
-
-                result.Message = "la pelicula fue removida correctamente";
+                result.Success=true;
+                result.Message = "la pelicula ha sido eliminada correctamente";
             }
             catch (Exception ex)
             {
-                result.Message = "Error removiendo la pelicula";
                 result.Success = false;
+                result.Message = "Ocurrió un error removiendo la pelicula";
                 this.logger.LogError($" {result.Message} ", ex.ToString());
             }
             return result;
          }
-        public ServiceResult SavePelicula(PeliculaAddDto peliculaAdd)
+        public ServiceResult SavePelicula(PeliculaSaveDto saveDto)
         {
-                ServiceResult result= new ServiceResult();
-            try
-            {
-                Pelicula pelicula = new Pelicula()
-                {
-                    Txt_desc = peliculaAdd.TxtDesc,
-                    Create_date = peliculaAdd.CreateDate,
-                    Create_user = peliculaAdd.CreateUser,
-                    Precio_alquiler = peliculaAdd.PrecioAlquiler,
-                    Precio_venta = peliculaAdd.PrecioVenta,
-                    Cant_disponibles_alquiler = peliculaAdd.CantDisponiblesAlquiler,
-                    Cant_disponibles_venta = peliculaAdd.CantDisponiblesVenta
-                };
-
-                this.peliculaRepository.Save(pelicula);
-                this.peliculaRepository.SaveChanges();
-
-                result.Message = " La pelicula fue guardado correctamente";
-            }
-             catch (Exception ex)
-             {
-                    result.Message = "Error guardando la pelicula";
-                    result.Success = false;
-                    this.logger.LogError($"{result.Message}", ex.ToString());
-                }
-                return result;
-        }
-        public ServiceResult UpdatePelicula(PeliculaUpdateDto peliculaUpdate)
-        {
-
+            this.logger.LogInformation("Paso por aqui", saveDto.txtDesc);
             ServiceResult result = new ServiceResult();
+
+            if (string.IsNullOrEmpty(saveDto.txtDesc))
+
+            {
+                result.Success = false;
+                result.Message = "El nombre es requerido";
+                return result;
+            }
+
+            if (saveDto.txtDesc.Length > 50)
+            {
+                result.Success = false;
+                result.Message = "La longitud del nombre es inválida";
+                return result;
+            }
+
             try
             {
-                Pelicula pelicula = this.peliculaRepository.GetEntity(peliculaUpdate.CodPelicula);
+                Pelicula pelicula = saveDto.GetPeliculaEntityFromDtoSave();
+                this.peliculaRepository.Save(pelicula);
+                result.Success = true;
+                result.Message = "La pelicula ha sido agregada correctamente.";
 
-                pelicula.Cod_pelicula = peliculaUpdate.CodPelicula;
-                pelicula.Txt_desc = peliculaUpdate.TxtDesc;
-                pelicula.Modify_date = peliculaUpdate.ModifyDate;
-                pelicula.Modify_user = peliculaUpdate.ModifyUser;
-                pelicula.Precio_alquiler = peliculaUpdate.PrecioAlquiler;
-                pelicula.Precio_venta = peliculaUpdate.PrecioVenta;
-                pelicula.Cant_disponibles_alquiler = peliculaUpdate.CantDisponiblesAlquiler;
-                pelicula.Cant_disponibles_venta = peliculaUpdate.CantDisponiblesVenta;
-                
-                this.peliculaRepository.Update(pelicula);
-                this.peliculaRepository.SaveChanges();
-                result.Message = "La pelicula fue modificada correctamente";
+                this.logger.LogInformation(result.Message, result);
+            }
+            catch (PeliculaDataException sdex)
+            {
+                result.Message = sdex.Message;
+                result.Success = false;
+                this.logger.LogError(result.Message, sdex.ToString());
             }
             catch (Exception ex)
             {
-                result.Message = "Error guardando la pelicula";
+                result.Message = "Ocurrió un error agregando la pelicula";
                 result.Success = false;
                 this.logger.LogError($"{result.Message}", ex.ToString());
             }
             return result;
+
+        }
+
+        public ServiceResult UpdatePelicula(PeliculaUpdateDto updateDto)
+        {
+
+            ServiceResult result = new ServiceResult();
+
+            try
+            {
+                if (string.IsNullOrEmpty(updateDto.txtDesc))
+
+                {
+                    result.Success = false;
+                    result.Message = "El nombre es requerido";
+                    return result;
+                }
+
+                if (updateDto.txtDesc.Length > 50)
+                {
+                    result.Success = false;
+                    result.Message = "La longitud del nombre es inválida";
+                    return result;
+                }
+
+                Pelicula pelicula = this.peliculaRepository.GetEntity(updateDto.codPelicula);
+                pelicula.Txt_desc = updateDto.txtDesc;
+                pelicula.Modify_date = updateDto.modifyDate;
+                pelicula.Modify_user = updateDto.modifyUser;
+                pelicula.Cant_disponibles_alquiler = updateDto.cantDisponiblesAlquiler;
+                pelicula.Cant_disponibles_venta = updateDto.cantDisponiblesVenta;
+                pelicula.Precio_alquiler = updateDto.precioAlquiler;
+                pelicula.Precio_venta = updateDto.precioVenta;
+
+                this.peliculaRepository.Update(pelicula);
+                result.Success = true;
+                result.Message = "La pelicula ha sido actualizado correctamente.";
+
+            }
+            catch (PeliculaDataException sdex)
+            {
+                result.Message = sdex.Message;
+                result.Success = false;
+                this.logger.LogError(result.Message, sdex.ToString());
+            }
+            catch (Exception ex)
+            {
+                result.Message = "Ocurrió un error actualizando el estudiante";
+                result.Success = false;
+                this.logger.LogError($"{result.Message}", ex.ToString());
+            }
+            return result;
+ 
         }
     }
   }

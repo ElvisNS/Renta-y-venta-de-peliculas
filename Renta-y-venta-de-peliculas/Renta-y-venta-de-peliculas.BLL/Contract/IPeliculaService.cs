@@ -5,9 +5,9 @@ namespace Renta_y_venta_de_peliculas.BLL.Contract
 {
    public interface IPeliculaService : IBaseService 
     {
-        ServiceResult SavePelicula(PeliculaAddDto peliculaAdd);
-        ServiceResult UpdatePelicula(PeliculaUpdateDto peliculaUpdate);
-        ServiceResult RemovePelicula(PeliculaRemoveDto peliculaRemove);
+        ServiceResult SavePelicula(PeliculaSaveDto saveDto);
+        ServiceResult UpdatePelicula(PeliculaUpdateDto updateDto);
+        ServiceResult RemovePelicula(PeliculaRemoveDto removeDto);
 
     }
 }

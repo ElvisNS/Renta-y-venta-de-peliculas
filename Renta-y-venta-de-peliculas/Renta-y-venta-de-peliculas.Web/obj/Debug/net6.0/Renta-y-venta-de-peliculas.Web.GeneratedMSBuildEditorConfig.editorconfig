@@ -23,8 +23,16 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Progra.II/Renta-y-venta-de-peliculas/Renta-y-venta-de-peliculas.Web/Views/Peliculas/Index.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGVsaWN1bGFzXEluZGV4LmNzaHRtbA==
+[C:/Progra.II/Renta-y-venta-de-peliculas/Renta-y-venta-de-peliculas.Web/Views/Pelicula/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGVsaWN1bGFcRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Progra.II/Renta-y-venta-de-peliculas/Renta-y-venta-de-peliculas.Web/Views/Pelicula/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGVsaWN1bGFcRWRpdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Progra.II/Renta-y-venta-de-peliculas/Renta-y-venta-de-peliculas.Web/Views/Pelicula/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUGVsaWN1bGFcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Progra.II/Renta-y-venta-de-peliculas/Renta-y-venta-de-peliculas.Web/Views/Shared/Error.cshtml]

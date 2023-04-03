@@ -21,7 +21,12 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "TEST", "TEST", "{73D7B94E-7
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Renta-y-venta-de-peliculas.TEST", "Renta-y-venta-de-peliculas.TEST\Renta-y-venta-de-peliculas.TEST.csproj", "{1DA36E75-9E32-4CCF-838E-2EEDA85D3066}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Renta-y-venta-de-peliculas. API", "Renta-y-venta-de-peliculas. API\Renta-y-venta-de-peliculas. API.csproj", "{984BBDE8-FC43-4CF0-8FFB-3F5EACB0A52C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Renta-y-venta-de-peliculas. API", "Renta-y-venta-de-peliculas. API\Renta-y-venta-de-peliculas. API.csproj", "{984BBDE8-FC43-4CF0-8FFB-3F5EACB0A52C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{5764E420-0457-4834-A5F4-49358745EC7B}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
