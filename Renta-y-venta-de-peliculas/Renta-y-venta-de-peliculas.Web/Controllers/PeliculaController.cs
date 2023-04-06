@@ -1,8 +1,14 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using Newtonsoft.Json;
-using Renta_y_venta_de_peliculas.Web.Models.Response;
-using Renta_y_venta_de_peliculas.Web.Models.Request;
+﻿using System;
 using System.Text;
+using Newtonsoft.Json;
+using System.Threading.Tasks;
+using Microsoft.AspNetCore.Mvc;
+using System.Collections.Generic;
+using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Configuration;
+using Renta_y_venta_de_peliculas.Web.Models.Request;
+using Renta_y_venta_de_peliculas.Web.Models.Response;
+using Renta_y_venta_de_peliculas.Web.APIservices.Interfaces;
 
 namespace Renta_y_venta_de_peliculas.Web.Controllers
 {
@@ -10,12 +16,15 @@ namespace Renta_y_venta_de_peliculas.Web.Controllers
 
     {
         HttpClientHandler httpClientHandler = new HttpClientHandler();
+        private readonly IPeliculaApiService peliculaApiService;
         private readonly ILogger<PeliculaController> logger;
         private readonly IConfiguration configuration;
-
-        public PeliculaController(ILogger<PeliculaController> logger,
+               
+        public PeliculaController(IPeliculaApiService peliculaApiService,
+                                  ILogger<PeliculaController> logger,
                                   IConfiguration configuration)
         {
+            this.peliculaApiService = peliculaApiService;
             this.logger = logger;
             this.configuration = configuration;
         }
@@ -25,52 +34,45 @@ namespace Renta_y_venta_de_peliculas.Web.Controllers
 
             try
             {
-                using var httpClient = new HttpClient(this.httpClientHandler);
-                var response = await httpClient.GetAsync("https://localhost:44361/api/PeliculaAPI");
-
-                if (response.IsSuccessStatusCode)
+                using (var httpClient = new HttpClient(this.httpClientHandler))
                 {
-                    string apiResponse = await response.Content.ReadAsStringAsync();
-                    peliculaListResponse = JsonConvert.DeserializeObject<PeliculaListResponse>(apiResponse);
-                }
-                else
-                {
-                    ViewBag.Message = peliculaListResponse.Message;
-                    return View(peliculaListResponse.Data);
+                    var response = await httpClient.GetAsync("https://localhost:44361/api/PeliculaAPI");
+
+                    if (response.IsSuccessStatusCode)
+                    {
+                        string apiResponse = await response.Content.ReadAsStringAsync();
+                        peliculaListResponse = JsonConvert.DeserializeObject<PeliculaListResponse>(apiResponse);
+                    }
+
+                    else
+                    {
+                        return BadRequest("Error obteniendo las peliculas");
+                    }
+                    peliculaListResponse = await this.peliculaApiService.GetPeliculas();
 
                 }
-
+                return View(peliculaListResponse.Data);
             }
 
             catch (Exception ex)
             {
-                this.logger.LogError("Error obteniendo las peliculas", ex.ToString());
-            }
-
-            return View();
+                if (!peliculaListResponse.Success)
+                {
+                    this.logger.LogError("Error obteniendo las peliculas", ex.ToString());
+                    return View();
+                }
+            }        
+            return View(peliculaListResponse.Data);
         }
-
+    }
         public async Task<ActionResult> Details(int id)
         {
+         PeliculaResponse peliculaResponse = new PeliculaResponse();
 
-            PeliculaResponse peliculaResponse = new PeliculaResponse();
-
-            using (var httpClient = new HttpClient(this.httpClientHandler))
-            {
-                var response = await httpClient.GetAsync($"https://localhost:44361/api/PeliculaAPI/" + id);
-
-                if (response.IsSuccessStatusCode)
-                {
-                    string apiResponse = await response.Content.ReadAsStringAsync();
-                    peliculaResponse = JsonConvert.DeserializeObject<PeliculaResponse>(apiResponse);
-                }
-                else
-                {
-                    ViewBag.Message = peliculaResponse.Message;
-                    return View(peliculaResponse.Data);
-                }
-            }
-            return View();
+         peliculaResponse = await this.peliculaApiService.GetPelicula(id);
+         
+         return View(peliculaResponse.Data);
+            
         }
 
         public ActionResult Create()

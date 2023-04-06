@@ -9,7 +9,7 @@ using Renta_y_venta_de_peliculas.BLL.Contract;
 using Renta_y_venta_de_peliculas.BLL.Services;
 using Renta_y_venta_de_peliculas.DAL.Context;
 using Renta_y_venta_de_peliculas.DAL.Interfaces;
-using Renta_y_venta_de_peliculas.DAL.Repositories;
+using Renta_y_venta_de_peliculas.DAL.Repository;
 
 
 namespace Renta_y_venta_de_peliculas._API
