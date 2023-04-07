@@ -40,7 +40,7 @@ namespace Renta_y_venta_de_peliculas.Web.APIservices.Services
                         }
                         else
                         {
-
+                            return peliculaResponse;
                         }
                     }
                 }
@@ -70,7 +70,7 @@ namespace Renta_y_venta_de_peliculas.Web.APIservices.Services
                         }
                         else
                         {
-
+                            return peliculaListResponse;
                         }
                     }
                 }
